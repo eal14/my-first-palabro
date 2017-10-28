@@ -8,7 +8,9 @@
         </div>
         <div>
             {% for language in languages %}
-                {{ language }}
+                <div>
+                    <p>{{ language.description }}</p>
+                </div>
             {% endfor %}
         </div>
     </body>

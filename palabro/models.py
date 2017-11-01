@@ -24,4 +24,3 @@ class Phrase(models.Model):
 	description = models.CharField(max_length=1000)
 	abreviation = models.CharField(max_length=20, blank=True, null=True)
 	language = models.ForeignKey(Language)
-

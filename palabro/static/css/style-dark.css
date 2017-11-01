@@ -1,0 +1,58 @@
+body.dark #toggle div
+{
+    background-color: #d7dadf;
+}
+
+
+/* CONTACT */
+
+body.dark .wpcf7 input[type=text], body.dark .wpcf7 input[type=email], body.dark .wpcf7 textarea
+{
+    color: #d7dadf;
+}
+
+body.dark .wpcf7 input[type=text]::-webkit-input-placeholder, body.dark .wpcf7 input[type=email]::-webkit-input-placeholder, body.dark .wpcf7 textarea::-webkit-input-placeholder
+{    
+    color: #d7dadf;    
+}
+body.dark .wpcf7 input[type=text]::-moz-placeholder, body.dark .wpcf7 input[type=email]::-moz-placeholder, body.dark .wpcf7 textarea::-moz-placeholder
+{
+    color: #d7dadf;
+}
+body.dark .wpcf7 input[type=text]:-ms-input-placeholder, body.dark .wpcf7 input[type=email]:-ms-input-placeholder, body.dark .wpcf7 textarea:-ms-input-placeholder
+{
+    color: #d7dadf;
+}
+body.dark .wpcf7 input[type=text]:-moz-placeholder, body.dark .wpcf7 input[type=email]:-moz-placeholder, body.dark .wpcf7 textarea:-moz-placeholder
+{
+    color: #d7dadf;
+}
+
+/* END CONTACT */
+
+
+/* COMMENTS ON SINGLE POST */
+
+body.dark #commentform #email, body.dark #commentform #author, body.dark #commentform #comment
+{
+    color: #d7dadf;
+}
+
+body.dark #commentform #comment::-webkit-input-placeholder, body.dark #commentform #author::-webkit-input-placeholder, body.dark #commentform #email::-webkit-input-placeholder
+{
+    color: #d7dadf;
+}
+body.dark #commentform #comment::-moz-placeholder, body.dark #commentform #author::-moz-placeholder, body.dark #commentform #email::-moz-placeholder
+{
+    color: #d7dadf;
+}
+body.dark #commentform #comment:-ms-input-placeholder, body.dark #commentform #author:-ms-input-placeholder, body.dark #commentform #email:-ms-input-placeholder
+{
+    color: #d7dadf;
+}
+body.dark #commentform #comment:-moz-placeholder, body.dark #commentform #author:-moz-placeholder, body.dark #commentform #email:-moz-placeholder
+{
+    color: #d7dadf;
+}
+
+/* END COMMENTS ON SINGLE POST */

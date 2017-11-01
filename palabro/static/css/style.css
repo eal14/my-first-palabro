@@ -1,0 +1,1523 @@
+/*
+Theme Name: Sati WP
+Theme URI: http://demo.drythemes.com/sati-wp/
+Description: Underconstruction WP Theme
+Author: DryThemes
+Author URI:  http://www.drythemes.com
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Version: 1.0
+Tags: grid-layout, four-columns, custom-background, custom-colors, featured-images, threaded-comments, translation-ready, theme-options
+Text Domain: sati-wp
+*/
+
+html
+{
+    overflow: hidden;
+}
+
+body
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px; 	
+    line-height: 28px;
+    font-weight: 400;	
+    color: #494949;        
+    background-color: #ffffff;
+    letter-spacing: -0.01cm;
+}
+
+body a
+{
+    text-decoration: none;
+    color: #494949;
+    transition: color .2s ease-in-out;
+}
+
+body a:hover
+{
+    color: #2db48b;
+}
+
+::selection
+{
+    background: #2DB48B;
+    color: #fff;
+}
+
+::-moz-selection
+{
+    background: #2DB48B; 
+    color: #fff;
+}
+
+.doc-loader 
+{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;	
+    background-color: white;
+}
+
+.doc-loader td 
+{       
+    text-align: center;
+    vertical-align: middle;
+}
+
+.doc-loader img
+{
+    width: 90px;
+    height: 90px;        
+}
+
+.nicescroll-rails-vr
+{
+    z-index: -1 !important;
+    opacity: 0 !important;
+}
+
+.content-1170
+{
+    width: 1170px;       
+}
+
+.content-770
+{
+    width: 770px;       
+}
+
+.content-1170 img, .content-770 img
+{
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.header-holder
+{
+    width: 1170px; 
+    padding-bottom: 50px;    
+    padding-top: 50px;
+}
+
+.header-logo
+{
+    padding-top: 80px;
+    display: inline-block; 
+}
+
+.header-logo img 
+{
+    max-width: 85px;
+    max-height: 85px;
+}
+
+.toggle-holder
+{
+    width: 30px;
+    height: 30px;
+    top: 70px;
+    right: 0; 
+    z-index: 101;
+    opacity: 0;
+    top: -200%;
+    transition: opacity .3s ease-in-out;
+}
+
+.toggle-holder.in-focus
+{
+    top: 70px;    
+    opacity: 1;    
+}
+
+.toggle-holder:hover
+{
+    cursor: pointer;
+}
+
+.toggle-holder:hover #toggle div
+{
+    background-color: #2DB48B;    
+}
+
+#toggle div
+{
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+#toggle div
+{
+    height: 4px;
+    margin-bottom: 3px;
+    background-color: #000;
+}
+
+#toggle .first-menu-line 
+{
+    transform: rotate(45deg) translate(5px, 5px);
+    -ms-transform: rotate(45deg) translate(5px, 5px);
+    -webkit-transform: rotate(45deg) translate(5px, 5px);
+}
+
+#toggle .second-menu-line
+{
+    transform: rotate(-45deg) translate(0, 0); 
+    -ms-transform: rotate(-45deg) translate(0, 0); 
+    -webkit-transform: rotate(-45deg) translate(0, 0); 
+}
+
+.menu-wraper
+{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    overflow: auto;
+}
+
+.main-menu.sm-clean
+{
+    background-color: transparent;    
+}
+
+.main-menu.sm-clean a
+{    
+    font-size: 12px;
+    line-height: 26px;    
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.main-menu.sm-clean a:after 
+{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #2db48b;
+    transition: width .3s;
+}
+
+.main-menu.sm-clean a:hover::after 
+{
+    width: 100%;    
+}
+
+.main-menu.sm-clean .sub-menu a
+{
+    font-size: 22px;
+    line-height: 30px;
+    border-left: 0;
+}
+
+.sm-clean .current_page_item a 
+{
+    color: #2db48b;
+}
+
+.main-menu.sm-clean a:hover 
+{
+    color: #2db48b;
+}
+
+
+/* SECTION - PAGE */
+
+.section
+{    
+    opacity: 0;
+    position: absolute;    
+    transition: opacity .3s ease-in;
+    width: 100%;        
+    top: -999999%;
+}
+
+.section.in-focus
+{
+    top: 0;    
+    opacity: 1;    
+}
+
+.admin-bar .section.in-focus
+{
+    top: 32px;    
+}
+
+.section.regular h2.entry-title
+{
+    padding-bottom: 80px;
+}
+
+.front-page .entry-content
+{
+    padding-bottom: 300px;
+}
+
+.content-wrapper
+{
+    padding-top: 50px;
+    position: relative;
+}
+
+.cd-headline
+{
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 700;
+}
+
+.cd-headline.type .cd-words-wrapper.selected 
+{
+    background-color: #2DB48B;
+}
+
+.cd-headline.type .cd-words-wrapper.selected b
+{
+    color: #fff;
+}
+
+.cd-headline.type i
+{
+    font-style: normal !important;
+}
+
+
+/* END SECTION - PAGE */
+
+
+
+/* SUBSCRIBE FORM */
+
+.percent-complete
+{
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 160px;
+    line-height: 100%;
+    position: absolute;
+    top: -110px;
+    color: #a2a2a2;
+}
+
+.percent-txt
+{    
+    font-size: 12px;
+    position: absolute;
+    top: -50px;
+    left: 320px;
+    color: #a2a2a2;
+    letter-spacing: 1px;
+    transition: opacity 6s linear;
+    opacity: 0;
+}
+
+.subscribe-form 
+{
+    position: relative;
+}
+
+.subscribe-form .wpcf7 p:first-of-type 
+{
+    float: left;
+    width: 80%;    
+}
+
+.subscribe-form .wpcf7 p:last-of-type 
+{
+    float: right;
+    width: 20%;
+}
+
+.subscribe-form .wpcf7 input[type=email]
+{        
+    border: 0;
+    background-color: #A2A2A2;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 24px;
+    line-height: 26px;      
+    text-transform: none;    
+}
+
+.subscribe-form .wpcf7 input[type=email]::-webkit-input-placeholder
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 24px;
+    line-height: 26px;        
+    opacity: 1;   
+}
+
+.subscribe-form .wpcf7 input[type=email]::-moz-placeholder
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 24px;
+    line-height: 26px;        
+    opacity: 1;    
+}
+
+.subscribe-form .wpcf7 input[type=email]:-ms-input-placeholder
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 24px;
+    line-height: 26px;        
+    opacity: 1;    
+}
+
+.subscribe-form .wpcf7 input[type=email]:-moz-placeholder
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 24px;
+    line-height: 26px;        
+    opacity: 1;    
+}
+
+.subscribe-form .wpcf7 input[type=submit] 
+{
+    border: 0;
+    margin: 15px 0;
+    padding-left: 30px;
+    text-align: left;
+    height: 100%;
+    color: #fff;
+    text-transform: none;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 26px;
+    background-color: transparent !important;
+}
+
+.left-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    background: #A2A2A2;
+    height: 100%;
+    z-index: 1;
+}
+
+.right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background-color: #2DB48B;
+    z-index: 0;
+    transition: background-color .3s linear;
+}
+
+.right-mask.hover
+{
+    background-color: #28a77f;
+}
+
+.subscribe-form .wpcf7 {
+    position: relative;
+    z-index: 2;
+}
+
+.subscribe-form div.wpcf7 img.ajax-loader
+{
+    display: none !important;
+}
+
+.subscribe-form div.wpcf7-response-output 
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 12px;
+    padding: 0;
+    border: 0;
+}
+
+.subscribe-form span.wpcf7-not-valid-tip
+{
+    display: none !important;
+}
+
+.subscribe-form .wpcf7-form-control-wrap 
+{
+    position: static;
+}
+
+/* END SUBSCRIBE FORM */
+
+
+
+/* PORTFOLIO SECTION */
+
+.portfolio-item 
+{
+    width: 33%;
+    width: calc(100%/3);
+    line-height: 0;
+    float: left;
+}
+
+.portfolio-item a 
+{
+    display: block;
+    position: relative;
+}
+
+.portfolio-text-holder 
+{    
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.34);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .3s linear;
+}
+
+.portfolio-text-holder img
+{
+    position: absolute;
+    top: 50%;    
+    left: 50%;
+    margin-left: -17px;
+    margin-top: -17px;
+}
+
+.portfolio-item a:hover .portfolio-text-holder
+{
+    opacity: 1;
+}
+
+/* END PORTFOLIO SECTION */
+
+
+/* ARCHIVE & SEARCH & 404 */
+
+.archive h1, .search h1
+{
+    text-align: center;
+    padding: 30px 0 70px 0;
+}
+
+.error404 h1
+{
+    padding: 200px 0;
+}
+
+/* END ARCHIVE & SEARCH & 404 */
+
+
+
+/* SKILLS SECTION */
+
+.progress_bar 
+{
+    margin-bottom: 15px;
+}
+
+.progress_bar_field_holder 
+{
+    height: 59px;
+    position: relative;
+    width: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.progress_bar_field_holder:hover .progress_bar_title
+{
+    left: 10px;
+    color: #fff !important;
+}
+
+.progress_bar_field_holder:hover .progress_bar_percent_text
+{
+    right: 10px;    
+}
+
+.progress_bar_title
+{
+    position: absolute;
+    top: 8px;
+    z-index: 2;
+    left: -11px;
+    font-weight: bold;
+    color: white;
+    font-size: 45px;
+    line-height: 100%;
+    transition: color .2s linear, left .2s linear;
+}
+
+.progress_bar_percent_text
+{
+    position: absolute;
+    right: -35px;
+    top: 15px;
+    z-index: 2;
+    font-weight: bold;
+    color: white;
+    font-size: 35px;
+    line-height: 100%;
+    transition: color .2s linear, right .2s linear;
+    color: #fff;
+}
+
+.progress_bar_field_perecent 
+{
+    height: 59px;    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2db48b;
+}
+
+/* END SKILLS SECTION */
+
+
+/* BLOG */
+
+.blog-holder article 
+{
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 50px;
+}
+
+.blog-holder article:nth-child(3n+2) 
+{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+p.read-more 
+{
+    padding-top: 20px;
+    display: block;
+}
+
+p.read-more a 
+{
+    color:  #2db48b;
+    font-size: 14px;
+    text-transform: uppercase;
+    display:inline-block;
+}
+
+p.read-more a:after 
+{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #2db48b;
+    transition: width .3s;
+}
+
+p.read-more a:hover::after 
+{
+    width: 100%;    
+}
+
+/* END BLOG */
+
+
+/* SINGLE POST */
+
+.single-post .single-header-content
+{
+    padding-bottom: 75px;
+}
+
+.single-post .single-header-content .carousel_pagination
+{
+    margin-bottom: 0;
+}
+
+.single-post h1.entry-title
+{
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 35px;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.single-post .post-info
+{
+    margin-bottom: 30px;
+}
+
+.post-date, .cat-links
+{
+    display: inline-block;
+}
+
+.post-date:after
+{
+    content: "|";
+    padding: 0 5px;    
+}
+
+.single-post .post-info .cat-links a
+{
+    text-decoration: none;
+    padding-right: 2px;
+}
+
+.single-post .post-info .cat-links a:after
+{
+    content: ",";
+    display: inline-block; 
+}
+
+.single-post .post-info .cat-links ul li:last-of-type a:after
+{
+    display: none;
+}
+
+.single-post .post-info .cat-links ul li:last-of-type a
+{
+    padding-right: 0;
+}
+
+.single-post .post-info .cat-links ul li
+{
+    display: inline-block;
+    line-height: 20px;
+}
+
+.single-post .wp-link-pages span
+{
+    color: #191919;
+}
+
+.single-post .wp-link-pages
+{
+    color: #FD3137;
+}
+
+.single-post .nav-links
+{    
+    margin: 50px 0;
+}
+
+.single-post .nav-previous
+{
+    display: inline-block;
+    max-width: 450px;
+}
+
+.single-post .nav-next
+{
+    display: inline-block;
+    max-width: 450px;
+}
+
+.single-post .nav-previous a, .single-post .nav-next a
+{
+    font-size: 34px;
+    display: table-cell;
+    max-width: 365px;
+    color: #222222;
+}
+
+.single-post .nav-previous a
+{
+    float: right;
+}
+
+.single-post .nav-next a
+{
+    float: left;  
+    text-align: right;
+}
+
+.single-post .nav-previous-text img, .single-post .nav-next-text img
+{
+    width: 40px;
+    height: 40px;
+    transition: opacity .3s ease-in-out;
+}
+
+.single-post .nav-previous-text img:hover, .single-post .nav-next-text img:hover
+{
+    opacity: 0.5; 
+}
+
+.single-post .nav-previous-text
+{
+    float: left;
+}
+
+.single-post .nav-next-text
+{
+    float: right;
+    margin-left: 30px;
+}
+
+.tags-holder 
+{
+    padding-top: 50px;
+}
+
+.tags-holder a 
+{
+    margin-left: 10px;
+    border-bottom: 1px solid;
+    padding-bottom: 2px;
+}
+
+.tags-holder a:first-child 
+{
+    margin: 0;
+}
+
+/* END SINGLE POST */
+
+
+/* COMMENTS ON SINGLE POST */
+
+.comments-holder ol
+{
+    list-style-type: none;
+}
+
+.comment-line-separator
+{
+    margin: 0 30px;
+}
+
+.vcard img
+{
+    border-radius: 100px;
+}
+
+.comment-author-date-replay-holder
+{
+    margin-left: 110px;
+}
+
+ul.comment-author-date-replay-holder li
+{
+    display: inline;
+    line-height: 24px;
+    font-size: 18px;
+}
+
+.comment-date
+{
+    color: #b5b5b5;
+    font-size: 13px;
+    line-height: 16px;
+    margin-left: 110px;
+    text-transform: uppercase;
+}
+
+.comment-reply
+{
+    float: right;
+}
+
+.comment-reply-link
+{
+    color: #2db48b;
+    text-decoration: none;
+}
+
+.comment-reply-link:hover
+{
+    color: #484251;
+    cursor: pointer;
+}
+
+.comments-number
+{
+    font-size: 24px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.comment-content-holder
+{
+    margin-left: 50px;
+}
+
+.comment-content-holder
+{
+    width: 470px;
+}
+
+.comment-time-separator
+{
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.comment-text
+{
+    clear: both;
+}
+
+.comment-text p
+{
+    display:inline;
+}
+
+.replay-at-author
+{
+    color: #2db48b;
+    margin-right: 10px;
+    font-weight: 400;
+}
+
+#reply-title
+{
+    font-size: 20px;
+}
+
+.comment-time
+{
+    display: inline-block;
+    font-size: 14px;
+}
+
+.comment-form-holder
+{
+    margin-top: 100px; 
+}
+
+.comment
+{
+    margin-top: 80px;
+}
+
+.logged-in-as 
+{
+    margin-bottom: 50px;
+}
+
+.comment-separator.no-comments
+{
+    color: #6f6f6f;
+    line-height: 25px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#commentform #email, #commentform #author
+{	
+    border: 0;
+    border-bottom: 2px solid;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin: 30px 0;
+    height: 28px;
+    font-size: 17px;
+    font-family:  'Montserrat', sans-serif;
+    width: 100%;
+    font-weight: 700;
+    background-color: transparent;
+}
+#commentform #comment
+{
+    margin-left: 0;
+    border: 0;
+    border-bottom: 2px solid;
+    padding-top: 13px;
+    padding-bottom: 0;
+    margin: 30px 0;
+    overflow: auto;
+    font-size: 17px;
+    font-family:  'Montserrat', sans-serif;
+    width: 100%;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+#commentform #comment::-webkit-input-placeholder, #commentform #author::-webkit-input-placeholder, #commentform #email::-webkit-input-placeholder
+{
+    font-family:  'Montserrat', sans-serif;
+    color: #2f2f2f;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 25px;
+}
+#commentform #comment::-moz-placeholder, #commentform #author::-moz-placeholder, #commentform #email::-moz-placeholder
+{
+    font-family:  'Montserrat', sans-serif;
+    color: #2f2f2f;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 25px;
+    opacity: 1;
+}
+#commentform #comment:-ms-input-placeholder, #commentform #author:-ms-input-placeholder, #commentform #email:-ms-input-placeholder
+{
+    font-family:  'Montserrat', sans-serif;
+    color: #2f2f2f;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 25px;
+}
+#commentform #comment:-moz-placeholder, #commentform #author:-moz-placeholder, #commentform #email:-moz-placeholder
+{
+    font-family:  'Montserrat', sans-serif;
+    color: #2f2f2f;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 25px;
+    opacity: 1;
+}
+
+.form-submit #submit
+{
+    display: inline-block;
+    border: 2px solid;
+    text-align: center;
+    padding: 30px 0px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    font-family:  'Montserrat', sans-serif;
+    font-weight: 700;
+    width: 100%;
+    font-size: 20px;
+    transition: color .2s ease-in-out, background-color .2s ease-in-out;
+    color: #2db48b;
+    border-color: #2db48b;
+}
+
+.form-submit #submit:hover
+{
+    color: #fff;
+    background-color: #2db48b;
+}
+
+/* END COMMENTS ON SINGLE POST */
+
+
+/* ARCHIVE */
+
+.page-pagination-holder 
+{
+    padding: 70px 0;
+}
+
+.page-numbers.current
+{
+    border: 1px solid #2db48b;
+    color: #2db48b;
+    padding: 7px 12px;
+    border-radius: 2px;
+}
+
+.page-numbers
+{
+    margin: 0 5px;
+    font-size: 16px;
+}
+
+.page-numbers:hover
+{
+    color: #2db48b;
+}
+
+/* END ARCHIVE */
+
+
+
+/* CONTACT */
+
+.wpcf7-form
+{
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.wpcf7 input[type=text], .wpcf7 input[type=email], .wpcf7 textarea
+{
+    border: 0;
+    border-bottom: 2px solid;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin: 30px 0;
+    height: 28px;
+    font-size: 17px;
+    font-family:  'Montserrat', sans-serif;
+    width: 100%;
+    line-height: 25px;
+    text-transform: uppercase;
+    background: transparent;
+}
+
+.wpcf7 input[name="your-name"]
+{
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.wpcf7 textarea
+{
+    height: 150px;
+}
+
+.wpcf7 input[type=submit]
+{	
+    display: inline-block;
+    border: 2px solid;
+    text-align: center;
+    padding: 30px 0px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    font-family:  'Montserrat', sans-serif;
+    font-weight: 700;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 17px;
+    transition: color .2s ease-in-out, background-color .2s ease-in-out;
+    border-color: #2db48b;
+    color: #2db48b;
+}
+
+.wpcf7 input[type=submit]:hover
+{
+    color: #fff;
+    background-color: #2db48b;
+}
+
+span.wpcf7-not-valid-tip
+{
+    color: #2db48b;
+}
+
+div.wpcf7-response-output
+{
+    margin: 0 !important;
+}
+
+.wpcf7 input[type=text]::-webkit-input-placeholder, .wpcf7 input[type=email]::-webkit-input-placeholder, .wpcf7 textarea::-webkit-input-placeholder
+{
+    font-family:  'Montserrat', sans-serif;
+    color: #2f2f2f;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 25px;
+}
+.wpcf7 input[type=text]::-moz-placeholder, .wpcf7 input[type=email]::-moz-placeholder, .wpcf7 textarea::-moz-placeholder
+{
+    font-family:  'Montserrat', sans-serif;
+    color: #2f2f2f;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 25px;
+    opacity: 1;
+}
+.wpcf7 input[type=text]:-ms-input-placeholder, .wpcf7 input[type=email]:-ms-input-placeholder, .wpcf7 textarea:-ms-input-placeholder
+{
+    font-family:  'Montserrat', sans-serif;
+    color: #2f2f2f;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 25px;
+}
+.wpcf7 input[type=text]:-moz-placeholder, .wpcf7 input[type=email]:-moz-placeholder, .wpcf7 textarea:-moz-placeholder
+{
+    font-family:  'Montserrat', sans-serif;
+    color: #2f2f2f;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 25px;
+    opacity: 1;
+}
+/* END CONTACT */
+
+
+
+/* RESPONSIVE PART */
+
+@media screen and (max-width: 1350px) { 
+    .subscribe-form .wpcf7 p:first-of-type {        
+        width: 70%;
+    }
+
+    .subscribe-form .wpcf7 p:last-of-type {        
+        width: 30%;
+    }
+}
+
+
+@media screen and (max-width: 1220px) { 
+
+    .section.front-page
+    {
+        background-position-x: 220% !important;
+        background-position-y: center !important;
+    }    
+
+    .content-1170
+    {
+        max-width: 870px;
+    }
+
+    .content-wrapper, .header-holder
+    {
+        padding-top: 30px;
+    }
+
+    .one_half,  .one_third,  .two_third,  .three_fourth, .one_fourth
+    {
+        margin-right: 8%;
+        float: left;
+        position: relative;
+        margin-bottom: 37px;
+    }
+
+    .one_half{
+        width: 46%;
+    }
+    .one_third{
+        width: 28%;
+    }
+    .two_third{
+        width: 64%;
+    }
+    .one_fourth{
+        width: 19%;
+    }
+    .three_fourth{
+        width: 73%;
+    }
+
+    blockquote 
+    {
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    blockquote:before
+    {
+        line-height: 95px;
+        font-size: 150px;        
+        position: relative;
+        top: 0;
+        left: 0;    
+        text-align: center;
+        display: block;
+    }
+
+    .header-holder
+    {
+        width: 870px;
+    }
+
+
+}
+
+@media screen and (max-width: 1020px) { 
+
+    .sm-clean li 
+    {
+        float: none;
+        display: inline-block;
+    }
+
+    .header-holder 
+    {
+        text-align: center;
+    }
+
+    .section.front-page
+    {
+        background-image: none !important;
+    }
+
+    .section.front-page .text-left
+    {
+        text-align: center; 
+    }
+
+    .cd-headline 
+    {
+        font-size: 28px;
+        line-height: 35px;
+    }
+
+    .front-page .entry-content
+    {
+        padding-bottom: 200px;
+        text-align: center;
+    }
+
+    .subscribe-form .wpcf7 p:first-of-type 
+    {
+        width: 100%;
+        float: none;
+        display: block;
+    }
+
+    .subscribe-form .wpcf7 p:last-of-type 
+    {
+        width: 100%;
+        float: none;
+        display: block;
+    }
+
+    .left-mask 
+    {        
+        height: 50%;        
+        width: 100% !important;
+    }
+
+    .right-mask 
+    {        
+        height: 50%;
+        bottom: 0;
+        top: auto !important;
+        width: 100% !important;
+    }
+
+    .subscribe-form .wpcf7 input[type=email] 
+    {
+        text-align: center;    
+        font-size: 18px;
+        line-height: 22px;               
+        padding-top: 0;
+        padding-bottom: 0;
+        margin: 20px 0;
+    }
+
+    .subscribe-form .wpcf7 input[type=submit]
+    {
+        text-align: center;         
+        padding-left: 0;
+        font-size: 18px;
+        line-height: 22px;
+        padding-top: 8px;
+        padding-bottom: 8px;            
+    }
+
+    .subscribe-form .wpcf7 input[type=email]::-webkit-input-placeholder
+    {
+        font-size: 18px;
+        line-height: 22px;               
+    }
+
+    .subscribe-form .wpcf7 input[type=email]::-moz-placeholder
+    {
+        font-size: 18px;
+        line-height: 22px;               
+    }
+
+    .subscribe-form .wpcf7 input[type=email]:-ms-input-placeholder
+    {
+        font-size: 18px;
+        line-height: 22px;               
+    }
+
+    .subscribe-form .wpcf7 input[type=email]:-moz-placeholder
+    {        
+        font-size: 18px;
+        line-height: 22px;               
+    }
+
+    .subscribe-form div.wpcf7-response-output 
+    {        
+        left: 50%;        
+        margin-left: -170px !important;
+    }
+
+    .percent-txt 
+    {
+        top: -128px;
+        left: 50%;
+        margin-left: -90px;
+    }
+
+    .percent-complete 
+    {
+        font-size: 100px;
+        top: -77px;
+        left: 50%;
+        margin-left: -95px;
+    }
+
+    .one_half, .one_third, .one_fourth, .two_third, .three_fourth
+    {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .blog-holder article 
+    {
+        width: 100%;
+        display: block;        
+        margin-bottom: 30px;
+    }
+
+    .blog-holder article:nth-child(3n+2)
+    {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .single-post .entry-content-holder, .single-post .nav-links
+    {
+        width: 100%;        
+    }
+
+    .single-post .nav-links
+    {
+        text-align: center;
+    }
+
+}
+
+
+@media screen and (max-width: 925px) {
+
+    .header-holder, .content-1170, .content-770
+    {
+        width: 660px;
+    }              
+
+    .portfolio-item
+    {
+        width: 50%;    
+    }
+
+}
+
+@media screen and (max-width: 805px) {  
+
+    .header-holder, .content-1170, .content-770
+    {
+        width: 540px;
+    }
+
+    .single-post .entry-content
+    {
+        font-size: 20px;
+        line-height: 35px;
+    }
+
+    .comment-text p
+    {
+        font-size: 18px;
+        line-height: 31px;
+    }
+
+    .replay-at-author
+    {
+        line-height: 31px;
+        font-size: 20px;
+    }
+
+    .comment-text
+    {
+        line-height: 31px;
+    }
+
+    .form-submit #submit
+    {
+        font-size: 18px;
+    }   
+
+    .comment-form-holder
+    {
+        margin-top: 0;
+    }
+
+    .single-post .nav-previous a, .single-post .nav-next a 
+    {
+        font-size: 22px;
+        line-height: 25px;    
+        max-width: 75%;
+    }
+
+    .comment 
+    {
+        margin-top: 50px;
+    }
+
+}
+
+@media screen and (max-width: 782px)
+{
+    blockquote:before 
+    {
+        line-height: 75px;
+        font-size: 110px;
+    }
+}
+
+
+@media screen and (max-width: 650px) {    
+
+    .sm-clean a
+    {
+        padding: 0 10px !important;
+    }
+
+    .header-holder, .content-1170, .content-770
+    {
+        width: 90%;
+    }
+
+    .left.vcard
+    {
+        float: none;
+    }
+
+    .comment-author-date-replay-holder
+    {
+        margin-left: 0;
+        line-height: 25px;
+    }
+
+    .comment-date
+    {
+        margin-left: 0;
+        margin-bottom: 25px;
+    }
+
+    .mc4wp-form 
+    {           
+        width: 65%;
+        max-width: 320px;
+        right: 0;
+    }
+
+}

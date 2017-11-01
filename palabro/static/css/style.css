@@ -22,15 +22,15 @@ body
     font-size: 16px; 	
     line-height: 28px;
     font-weight: 400;	
-    color: #494949;        
-    background-color: #ffffff;
+    color: #1aadd7;        
+    background-color: #4d4d4d;
     letter-spacing: -0.01cm;
 }
 
 body a
 {
     text-decoration: none;
-    color: #494949;
+    color: #1aadd7;
     transition: color .2s ease-in-out;
 }
 

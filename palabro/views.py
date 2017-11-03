@@ -26,7 +26,7 @@ def init(request):
     city = g.city(ip)
     country_code = ''
     if city:
-        country_code = city.country_code3
+        country_code = city['country_code3']
     lng = 'es'
     html_location = lng + '/palabro/init.html'
     return render(request, html_location,{ 'ip': ip, 'country_code': country_code})

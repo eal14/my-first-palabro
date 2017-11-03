@@ -6,6 +6,13 @@ from django.contrib.auth.models import User
 from .models import Language
 
 class LanguageForm(forms.ModelForm):
+    
+#    form_fields = ()
+
+#    if(lng == 'es'):
+#     form_fields = ('Descripcion','Descripcion_corta',)
+#    else:
+    form_fields = ('description','short_description',)
 
     class Meta:
         model = Language

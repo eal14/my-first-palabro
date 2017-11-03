@@ -11,22 +11,34 @@ from .models import Language
 from .forms import LanguageForm
 from .forms import SignUpForm
 
+#from .general_lib import GenLib
+
 # Create your views here.
 def language_list(request):
     languages = Language.objects.all()
-    return render(request, 'palabro/language_list.html', {'languages': languages})
+    lng = 'es'
+    html_location = lng + '/palabro/language_list.html'
+    return render(request, html_location, {'languages': languages})
 
 def init(request):
-    return render(request, 'palabro/init.html',{})
+    ip = get_ip_address(request)
+    lng = 'es'
+    html_location = lng + '/palabro/init.html'
+    return render(request, html_location,{ 'ip': ip})
 
 def dashboard(request):
-    return render(request, 'palabro/dashboard.html',{})
+    lng = 'es'
+    html_location = lng + '/palabro/dashboard.html'
+    return render(request, html_location,{})
 
 def register(request):
-    return render(request, 'palabro/register.html',{})
+    lng = 'es'
+    html_location = lng + '/palabro/register.html'
+    return render(request, html_location,{})
 
 @login_required
 def language_new(request):
+    lng = 'es'
     if request.method == "POST":
         form = LanguageForm(request.POST)
 
@@ -36,7 +48,8 @@ def language_new(request):
             return redirect('language_list')
     else:
         form = LanguageForm()
-    return render(request,'palabro/language_edit.html', {'form': form})
+    html_location = lng + '/palabro/language_edit.html'
+    return render(request,html_location, {'form': form})
 
 def signup(request):
     if request.method == 'POST':
@@ -50,4 +63,14 @@ def signup(request):
             return redirect('/')
     else:
         form = SignUpForm()
-    return render(request, 'registration/signup.html', {'form': form})
+    lng = 'es'
+    html_location = lng + '/registration/signup.html'
+    return render(request, html_location, {'form': form})
+
+def get_ip_address(request):
+    ip = request.META.get("HTTP_X_FORWARDED_FOR", None)
+    if ip:
+        ip = ip.split(", ")[0]
+    else:
+        ip = request.META.get("REMOTE_ADDR", "")
+    return ip

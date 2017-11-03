@@ -23,7 +23,8 @@ body
     line-height: 28px;
     font-weight: 400;	
     color: #1aadd7;        
-    background-color: #4d4d4d;
+/*    background-color: #4d4d4d;*/
+    background-color: #333333;
     letter-spacing: -0.01cm;
 }
 

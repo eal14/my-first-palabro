@@ -1,0 +1,10 @@
+{% extends 'palabro/base.html' %}
+
+
+{% block content %}
+    {% for language in languages %}
+        <div class="palabro">
+            <p>{{ language.description }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

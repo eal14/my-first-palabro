@@ -89,16 +89,14 @@ def save_visitor_info(ip, visited_page):
             visitor.counter += 1
             visitor.save()
 
-            visit = Visit.objects.create(visited_page=visited_page)
-            visit.visitor = visitor
+            visit = Visit.objects.create(visitor = visitor, visited_page=visited_page)
             visit.save()            
             
         except Visitor.DoesNotExist:
             visitor = Visitor.objects.create(ip=ip, city=visitor_info['city'], country_code=visitor_info['country_code'], country_code3=visitor_info['country_code3'], latitude=visitor_info['latitude'], longitude=visitor_info['longitude'], counter=1)
             visitor.save()            
             
-            visit = Visit.objects.create(visited_page=visited_page)
-            visit.visitor = visitor
+            visit = Visit.objects.create(visitor = visitor, visited_page=visited_page)
             visit.save()
             
             if visitor.country_code3 == 'MEX':

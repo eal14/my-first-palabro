@@ -79,3 +79,11 @@ def get_ip_address(request):
     else:
         ip = request.META.get("REMOTE_ADDR", "")
     return ip
+
+
+def save_visitor_info(ip):
+    lng = ''
+    
+    
+    
+    return lng

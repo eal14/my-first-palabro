@@ -84,8 +84,8 @@ def save_visitor_info(ip, visited_page):
     g = GeoIP()
     visitor_info = g.city(ip)
     if visitor_info:
-        visitor = Visitor.objects.get(pk=ip)
-        if visitor:
+        try:
+            visitor = Visitor.objects.get(pk=ip)
             visitor.counter += 1
             visitor.save()
 
@@ -93,7 +93,7 @@ def save_visitor_info(ip, visited_page):
             visit.visitor = visitor
             visit.save()            
             
-        else:
+        except Visitor.DoesNotExist:
             visitor = Visitor.objects.create(ip=ip, city=visitor_info['city'], country_code=visitor_info['country_code'], country_code3=visitor_info['country_code3'], latitude=visitor_info['latitude'], longitude=visitor_info['longitude'], counter=1)
             visitor.save()            
             

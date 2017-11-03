@@ -87,7 +87,7 @@ def save_visitor_info(ip, visited_page):
         visitor = Visitor.objects.get(pk=ip)
         if visitor:
             visitor.counter += 1
-            visitor.save
+            visitor.save()
 
             visit = Visit.objects.create(visited_page=visited_page)
             visit.visitor = visitor

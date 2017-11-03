@@ -7,6 +7,8 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Language
+from .models import Visitor
+from .models import Visit
 
 from .forms import LanguageForm
 from .forms import SignUpForm
@@ -22,14 +24,9 @@ def language_list(request):
 
 def init(request):
     ip = get_ip_address(request)
-    g = GeoIP()
-    city = g.city(ip)
-    country_code = ''
-    if city:
-        country_code = city['country_code3']
-    lng = 'es'
+    lng = save_visitor_info(ip, 'init')
     html_location = lng + '/palabro/init.html'
-    return render(request, html_location,{ 'ip': ip, 'country_code': country_code})
+    return render(request, html_location,{})
 
 def dashboard(request):
     lng = 'es'
@@ -81,9 +78,29 @@ def get_ip_address(request):
     return ip
 
 
-def save_visitor_info(ip):
-    lng = ''
+def save_visitor_info(ip, visited_page):
+    lng = 'es'
     
-    
-    
+    g = GeoIP()
+    visitor_info = g.city(ip)
+    if visitor_info:
+        visitor = Visitor.objects.get(pk=ip)
+        if visitor:
+            visitor.counter += 1
+            visitor.save
+
+            visit = Visit.objects.create(visited_page=visited_page)
+            visit.visitor = visitor
+            visit.save()            
+            
+        else:
+            visitor = Visitor.objects.create(ip=ip, city=visitor_info['city'], country_code=visitor_info['country_code'], country_code3=visitor_info['country_code3'], latitude=visitor_info['latitude'], longitude=visitor_info['longitude'], counter=1)
+            visitor.save()            
+            
+            visit = Visit.objects.create(visited_page=visited_page)
+            visit.visitor = visitor
+            visit.save()
+            
+            if visitor.country_code3 == 'MEX':
+                lng = 'es'
     return lng

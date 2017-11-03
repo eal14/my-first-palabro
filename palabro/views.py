@@ -11,7 +11,7 @@ from .models import Language
 from .forms import LanguageForm
 from .forms import SignUpForm
 
-#from .general_lib import GenLib
+from django.contrib.gis.geoip import GeoIP
 
 # Create your views here.
 def language_list(request):
@@ -22,9 +22,14 @@ def language_list(request):
 
 def init(request):
     ip = get_ip_address(request)
+    g = GeoIP()
+    city = g.city(ip)
+    country_code = ''
+    if city:
+        country_code = city.country_code3
     lng = 'es'
     html_location = lng + '/palabro/init.html'
-    return render(request, html_location,{ 'ip': ip})
+    return render(request, html_location,{ 'ip': ip, 'country_code': country_code})
 
 def dashboard(request):
     lng = 'es'

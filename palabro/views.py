@@ -18,7 +18,8 @@ from django.contrib.gis.geoip import GeoIP
 # Create your views here.
 def language_list(request):
     languages = Language.objects.all()
-    lng = 'es'
+    ip = get_ip_address(request)
+    lng = save_visitor_info(ip, 'language_list')
     html_location = lng + '/palabro/language_list.html'
     return render(request, html_location, {'languages': languages})
 
@@ -29,18 +30,21 @@ def init(request):
     return render(request, html_location,{})
 
 def dashboard(request):
-    lng = 'es'
+    ip = get_ip_address(request)
+    lng = save_visitor_info(ip, 'dashboard')
     html_location = lng + '/palabro/dashboard.html'
     return render(request, html_location,{})
 
 def register(request):
-    lng = 'es'
+    ip = get_ip_address(request)
+    lng = save_visitor_info(ip, 'register')
     html_location = lng + '/palabro/register.html'
     return render(request, html_location,{})
 
 @login_required
 def language_new(request):
-    lng = 'es'
+    ip = get_ip_address(request)
+    lng = save_visitor_info(ip, 'language_new')
     if request.method == "POST":
         form = LanguageForm(request.POST)
 
@@ -54,6 +58,8 @@ def language_new(request):
     return render(request,html_location, {'form': form})
 
 def signup(request):
+    ip = get_ip_address(request)
+    lng = save_visitor_info(ip, 'signup')
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():

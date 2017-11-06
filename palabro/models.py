@@ -40,4 +40,6 @@ class Visit(models.Model):
     visitor = models.ForeignKey(Visitor)
     visit_date = models.DateTimeField(default=timezone.now)
     visited_page = models.CharField(max_length=40)
+
+#class user
     

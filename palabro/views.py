@@ -13,12 +13,17 @@ from django.utils import translation
 
 from django.views.generic import TemplateView
 
+from django.db import IntegrityError, transaction
+
 from .models import Language
 from .models import Visitor
 from .models import Visit
+from .models import Profile
 
 from .forms import LanguageForm
 from .forms import SignUpForm
+from .forms import UserForm
+from .forms import ProfileForm
 
 # Create your views here.
 
@@ -52,7 +57,7 @@ def dashboard(request):
     ip = get_ip_address(request)
     save_visitor_info(ip, 'dashboard')
     
-    html_location = '/palabro/dashboard.html'
+    html_location = 'palabro/dashboard.html'
     
     return render(request, html_location,{})
 
@@ -105,13 +110,67 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             
-            return redirect('/')
+            return redirect('profile')
     else:
+    
+        if request.user.is_authenticated():
+            return redirect('dashboard')
+            
         form = SignUpForm()
         
     html_location = 'registration/signup.html'
     
     return render(request, html_location, {'form': form})
+    
+@login_required
+def configuration(request):
+    
+    ip = get_ip_address(request)
+    save_visitor_info(ip, 'configuration')
+    
+    msg = ''
+    
+    if request.method == 'POST':
+        form = ProfileForm(request.POST)
+        
+        if form.is_valid():
+        
+            profile = form.save(commit=False)
+            profile.save()
+            
+            msg = 'Changes applied correctly.'
+    else:
+    
+        try:
+            profile = Profile.objects.get(pk=request.user.username)
+            form = ProfileForm(profile)
+            
+        except Profile.DoesNotExist:
+            form = ProfileForm()
+    
+    return render(request, 'palabro/configuration.html', {'form': form, 'msg': msg})
+    
+    
+@login_required
+@transaction.atomic
+def profile(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+#            messages.success(request, _('Your profile was successfully updated!'))
+            return redirect('dashboard')
+#        else:
+#            messages.error(request, _('Please correct the error below.'))
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+    return render(request, 'palabro/profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })
 
 
 

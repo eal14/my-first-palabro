@@ -102,18 +102,16 @@ def signup(request):
     save_visitor_info(ip, 'signup')
     
     if request.method == 'POST':
-        form = SignUpForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        form = SignUpForm(request.POST)
         
-        if form.is_valid() and profile_form.is_valid():
+        if form.is_valid():
             form.save()
-            profile_form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             
-            return redirect('profile')
+            return redirect('native_language')
     else:
     
         if request.user.is_authenticated():

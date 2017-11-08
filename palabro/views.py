@@ -24,6 +24,7 @@ from .forms import LanguageForm
 from .forms import SignUpForm
 from .forms import UserForm
 from .forms import ProfileForm
+from .forms import NativeLanguageForm
 
 # Create your views here.
 
@@ -101,10 +102,12 @@ def signup(request):
     save_visitor_info(ip, 'signup')
     
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = SignUpForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
         
-        if form.is_valid():
+        if form.is_valid() and profile_form.is_valid():
             form.save()
+            profile_form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
@@ -117,10 +120,11 @@ def signup(request):
             return redirect('dashboard')
             
         form = SignUpForm()
+        profile_form = ProfileForm()
         
     html_location = 'registration/signup.html'
     
-    return render(request, html_location, {'form': form})
+    return render(request, html_location, {'form': form, 'profile_form': profile_form})
     
 @login_required
 def configuration(request):
@@ -172,7 +176,20 @@ def profile(request):
         'profile_form': profile_form
     })
 
+@login_required
+def set_native_language(request):
 
+    if request.method == 'POST':
+        nlf = NativeLanguageForm(request.POST, instance=request.user.profile)
+        if nlf.is_valid():
+            nlf.save()
+            return redirect('dashboard')
+            
+            
+    else:
+        nlf = NativeLanguageForm(instance=request.user.profile)
+    
+    return render(request, 'palabro/native_language.html', {'form': nlf})
 
 
 def get_ip_address(request):

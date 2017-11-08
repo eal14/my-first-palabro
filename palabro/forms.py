@@ -24,9 +24,9 @@ class LanguageForm(forms.ModelForm):
 
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=True, help_text=_('Your name please.'))
-    last_name = forms.CharField(max_length=30, required=False, help_text=_('Optional.'))
-    email = forms.EmailField(max_length=254, help_text=_('Required. Inform a valid email address.'))
+    first_name = forms.CharField(max_length=30, required=True)
+#    last_name = forms.CharField(max_length=30, required=False, help_text=_('Optional.'))
+#    email = forms.EmailField(max_length=254, help_text=_('Required. Inform a valid email address.'))
 
     class Meta:
         model = User
@@ -34,18 +34,25 @@ class SignUpForm(UserCreationForm):
 
 
 class UserForm(forms.ModelForm):
-    form_fields = (_('First name'),_('Last name'),_('Email'),)
+    form_fields = (_('First name'),_('Last name'),)
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email')
+        fields = ('first_name', 'last_name',)
         
 
 class ProfileForm(forms.ModelForm):
     genre = forms.ModelChoiceField(queryset=Genre.objects.all(), required=False)
     birthdate = forms.DateField(required=False)
-    form_fields = (_('Native language'),_('Birthdate'),_('Genre'),)
+    form_fields = (_('Birthdate'),_('Genre'),)
 
     class Meta:
         model = Profile
-        fields = ('native_language','birthdate','genre',)
+        fields = ('birthdate','genre',)
         
+        
+class NativeLanguageForm(forms.ModelForm):
+    form_field = (_('Native language'),)
+    
+    class Meta:
+        model = Profile
+        fields = ('native_language',)

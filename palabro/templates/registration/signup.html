@@ -5,18 +5,10 @@
   <h2>{% trans "Sign up" %}</h2>
   <form method="post">
     {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
+        
+        {{ form.as_p }}
+    <!--{{ profile_form.as_p }}-->
     <button type="submit">{% trans "Sign up" %}</button>
   </form>
+
 {% endblock %}

@@ -4,21 +4,28 @@
 {% block content %}
 
     {% if user.is_anonymous %}
-        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-            <input name="next" type="hidden" value="{{ redirect_to }}" />
-            <select name="language">
-                {% get_current_language as LANGUAGE_CODE %}
-                {% get_available_languages as LANGUAGES %}
-                {% get_language_info_list for LANGUAGES as languages %}
-                {% for language in languages %}
-                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                        {{ language.name_local }} ({{ language.code }})
-                    </option>
-                {% endfor %}
-            </select>
-            <!--<input type="submit" value="Go" />-->
-            <button type="submit" class="save btn btn-default">{% trans "Apply" %}</button>
-        </form>
+        <div id="select_language">
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                <select name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+                <!--<input type="submit" value="Go" />-->
+                <button type="submit" class="save btn btn-default">{% trans "Apply" %}</button>
+            </form>
+        </div>
     {% endif %}
+    
+                    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+                <p class="lead">
+                  <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+                </p>
     
 {% endblock %}

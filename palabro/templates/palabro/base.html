@@ -1,65 +1,114 @@
 {% load staticfiles %}
 {% load i18n %}
 <html>
-    <head>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo.ico' %}" />
-        <title>Palabro</title>
-    </head>
-    <body>
-        <div class="page-header">
-            {% if user.is_authenticated %}
-                {% if user.profile.native_language %}
-                <a href="{% url 'language_new' %}" class="">
-                    <!--<span class="glyphicon glyphicon-plus"></span>-->
-                    {% trans "Add" %}
-                </a>
-                <a href="{% url 'language_list' %}" class="">
-                    <!--<span class="glyphicon glyphicon-edit"></span>-->
-                    {% trans "List" %}
-                </a>
-                <p class="">{% trans "Hello" %} {{ user.first_name }} 
-                    <small>(<a href="{% url 'logout' %}">{% trans "Logout" %}</a>)
-                    </small>
-                </p>
-                <p class="">
-                    <small><a href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
-                    </small>
-                </p>
-                {% else %}
-                    <p class="">
-                        {% trans "Selecciona tu idioma nativo" %}
-                    </p>
-                {% endif %}
-                <p class="">
-                    <small><a href="{% url 'profile' %}">{% trans "Profile" %}</a>
-                    </small>
-                </p>
-            {% else %}
-                <a href="{% url 'login' %}" class="">
-                    <!--<span class="glyphicon glyphicon-lock"></span>-->
-                    {% trans "Login" %}
-                </a>/
-                <a href="{% url 'signup' %}" class="">
-                    {% trans "Register" %}
-                </a>  
-            {% endif %}
-            
-            <h1><a href="/">Palabro</a></h1>
-        </div>
 
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                {% block content %}
-                {% endblock %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        
+        <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
+        <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
+        
+        
+        <!--<link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/cover.css' %}">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo.ico' %}" />
+        
+        <title>Palabro</title>
+        
+    </head>
+    
+    <body>
+   
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <header class="masthead clearfix">
+                        <div class="inner">
+                            <h3 class="masthead-brand">
+                                <a href="/">Palabro</a>
+                            </h3>
+                            <nav class="nav nav-masthead">
+                                {% if user.is_authenticated %}
+                                    <!--{% trans "Hello" %} {{ user.first_name }}-->
+                                    <!--<ul class="navbar-nav mr-auto">-->
+                                        <!--<li class="nav-item active">-->
+                                            <a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+                                        <!--</li>-->
+                                    
+                                        {% if user.profile.native_language %}
+                                            <!--<li  class="nav-item">-->
+                                                <a class="nav-link" href="{% url 'language_new' %}">{% trans "Add" %} <span class="glyphicon glyphicon-plus"></span>
+                                                </a>
+                                            <!--</li>-->
+                                            <!--<li  class="nav-item">-->
+                                                <a class="nav-link" href="{% url 'language_list' %}">{% trans "List" %}</a>
+                                            <!--</li>-->
+                                            <!--<li  class="nav-item">-->
+                                                <a class="nav-link" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
+                                            <!--</li>-->
+                                            <!--<li  class="nav-item">-->
+                                                <a class="nav-link" href="{% url 'profile' %}">{% trans "Profile" %}</a>
+                                            <!--</li>-->
+
+                                        {% else %}
+                                            <!--<li  class="nav-item">-->
+                                                <a class="nav-link" href="{% url 'native_language' %}">{% trans "Native language" %}</a>
+                                            <!--</li>-->
+                                        {% endif %}
+                                    <!--</ul>-->
+                                
+                                
+                                {% else %}
+                                    <!--<ul class="navbar-nav mr-auto">-->
+                                        <!--<li  class="nav-item">-->
+                                            <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
+                                        <!--</li>-->
+                                        <!--<li  class="nav-item">-->
+                                            <a class="nav-link" href="{% url 'signup' %}">{% trans "SignUp" %}</a>
+                                        <!--</li>-->
+                                    <!--</ul>-->
+                                {% endif %}
+                
+                            </nav>
+                        </div>
+                    </header>
+
+                    <main role="main" class="inner cover">
+            <h1 class="cover-heading">
+                {% if title %}
+                    {{ title }}
+                {% endif %}
+            </h1>
+            
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer">
             
+          </main>
+
+          <footer class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </footer>
+
         </div>
+
+      </div>
+
+    </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="{% static 'js/bootstrap.js' %}"></script> 
+        
     </body>
 </html>

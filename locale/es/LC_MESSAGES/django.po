@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-06 01:11-0500\n"
+"POT-Creation-Date: 2017-11-08 01:44-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,15 @@ msgstr ""
 
 #: mysite/settings.py:115
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: mysite/settings.py:116
 msgid "Spanish"
-msgstr ""
+msgstr "Español"
 
 #: myvenv/lib/python3.4/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #: myvenv/lib/python3.4/site-packages/django/contrib/sitemaps/apps.py:7
 msgid "Site Maps"
@@ -1110,57 +1110,82 @@ msgstr ""
 msgid "Index of %(directory)s"
 msgstr ""
 
-#: palabro/forms.py:17
+#: palabro/forms.py:19
 msgid "Description"
 msgstr "Descripción"
 
-#: palabro/forms.py:17
+#: palabro/forms.py:19
 msgid "Short description"
 msgstr "Descripción corta"
 
-#: palabro/forms.py:25
-msgid "Your name please."
-msgstr "Tu nombre porfavor."
+#: palabro/forms.py:37
+msgid "First name"
+msgstr "Nombre"
 
-#: palabro/forms.py:26
-msgid "Optional."
-msgstr "Opcional."
+#: palabro/forms.py:37
+msgid "Last name"
+msgstr "Apellido"
 
-#: palabro/forms.py:27
-msgid "Required. Inform a valid email address."
-msgstr "Requerido. Proporciona una dirección de correo-e."
+#: palabro/forms.py:46
+msgid "Birthdate"
+msgstr "Fecha de nacimiento"
 
-#: palabro/templates/palabro/base.html:16
-msgid "Add"
-msgstr "Agregar"
+#: palabro/forms.py:46
+msgid "Genre"
+msgstr "Género"
 
-#: palabro/templates/palabro/base.html:20
-msgid "List"
-msgstr "Lista"
+#: palabro/forms.py:54 palabro/templates/palabro/base.html:59
+#, fuzzy
+#| msgid "New language"
+msgid "Native language"
+msgstr "Lenguaje nuevo"
 
-#: palabro/templates/palabro/base.html:22
+#: palabro/templates/palabro/base.html:36
 msgid "Hello"
 msgstr "Hola"
 
-#: palabro/templates/palabro/base.html:23
+#: palabro/templates/palabro/base.html:39
 msgid "Logout"
 msgstr "Salir"
 
-#: palabro/templates/palabro/base.html:27
+#: palabro/templates/palabro/base.html:44
+msgid "Add"
+msgstr "Agregar"
+
+#: palabro/templates/palabro/base.html:48
+msgid "List"
+msgstr "Lista"
+
+#: palabro/templates/palabro/base.html:51
 #, fuzzy
 #| msgid "My dashboard"
 msgid "Dashboard"
 msgstr "Panel de control"
 
-#: palabro/templates/palabro/base.html:33
+#: palabro/templates/palabro/base.html:54
+msgid "Profile"
+msgstr "Perfil"
+
+#: palabro/templates/palabro/base.html:68
 msgid "Login"
 msgstr "Iniciar sesión"
 
-#: palabro/templates/palabro/base.html:36
-msgid "Register"
-msgstr "Registro"
+#: palabro/templates/palabro/base.html:71
+#, fuzzy
+#| msgid "Sign up"
+msgid "SignUp"
+msgstr "Registrarse"
 
-#: palabro/templates/palabro/index.html:20
+#: palabro/templates/palabro/configuration.html:5
+msgid "Configuration"
+msgstr "Configuración"
+
+#: palabro/templates/palabro/configuration.html:9
+#: palabro/templates/palabro/language_edit.html:8
+msgid "Save"
+msgstr "Guardar"
+
+#: palabro/templates/palabro/index.html:21
 msgid "Apply"
 msgstr "Aplicar"
 
@@ -1168,14 +1193,22 @@ msgstr "Aplicar"
 msgid "New language"
 msgstr "Lenguaje nuevo"
 
-#: palabro/templates/palabro/language_edit.html:8
-msgid "Save"
-msgstr "Guardar"
-
 #: palabro/templates/registration/signup.html:5
-#: palabro/templates/registration/signup.html:20
+#: palabro/templates/registration/signup.html:11
 msgid "Sign up"
 msgstr "Registrarse"
+
+#~ msgid "Your name please."
+#~ msgstr "Tu nombre porfavor."
+
+#~ msgid "Optional."
+#~ msgstr "Opcional."
+
+#~ msgid "Required. Inform a valid email address."
+#~ msgstr "Requerido. Proporciona una dirección de correo-e."
+
+#~ msgid "Register"
+#~ msgstr "Registro"
 
 #~ msgid "Log out"
 #~ msgstr "Salir"

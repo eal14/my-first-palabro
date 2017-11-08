@@ -36,12 +36,13 @@
                                     <!--{% trans "Hello" %} {{ user.first_name }}-->
                                     <!--<ul class="navbar-nav mr-auto">-->
                                         <!--<li class="nav-item active">-->
+                                            <a class="nav-link active" href="/">{% trans "Home" %}</a>
                                             <a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
                                         <!--</li>-->
                                     
                                         {% if user.profile.native_language %}
                                             <!--<li  class="nav-item">-->
-                                                <a class="nav-link" href="{% url 'language_new' %}">{% trans "Add" %} <span class="glyphicon glyphicon-plus"></span>
+                                                <a class="nav-link" href="{% url 'language_new' %}">{% trans "Add" %}
                                                 </a>
                                             <!--</li>-->
                                             <!--<li  class="nav-item">-->

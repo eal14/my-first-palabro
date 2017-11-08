@@ -30,10 +30,10 @@ body {
   background-color: #333;
 }
 body {
-  background-image: url('../images/pexels-photo-355770.jpeg');
+  /*background-image: url('../images/pexels-photo-355770.jpeg');
   background-repeat: no-repeat;
-  background-position: center center;
-  color: #fff;
+  background-position: center center;*/
+  color: #1aadd7;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
 }
@@ -91,8 +91,8 @@ body {
 }
 
 .nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
+  color: #1aadd7;
+  border-bottom-color: #1aadd7;
 }
 
 @media (min-width: 48em) {

@@ -30,9 +30,9 @@ body {
   background-color: #333;
 }
 body {
-  /*background-image: url('../images/pexels-photo-355770.jpeg');
+  background-image: url('../images/backg2.jpg');
   background-repeat: no-repeat;
-  background-position: center center;*/
+  background-position: center center;
   color: #1aadd7;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
@@ -83,7 +83,9 @@ body {
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255,255,255,.25);
+    color: #1aadd7;
+  /*border-bottom-color: rgba(255,255,255,.25);*/
+  border-bottom-color: #1aadd7;
 }
 
 .nav-masthead .nav-link + .nav-link {
